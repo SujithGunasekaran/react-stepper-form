@@ -1,0 +1,105 @@
+:root {
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #EBF4F6;
+}
+
+.main-container {
+  min-height: 100vh;
+  width: 50vw;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-container {
+  text-align: center;
+}
+
+.header-container .title {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+}
+
+.header-container .description {
+  font-weight: 400;
+  word-spacing: 0.4px;
+  color: rgb(107, 107, 107);
+}
+
+.modal-container {
+  margin: 15px 0px;
+  width: 100%;
+  min-height: 70vh;
+  border-radius: 10px;
+  padding: 35px;
+  background-color: #FFFFFF;
+}
+
+.modal-header-stepper-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-header-stepper {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.modal-header-stepper-last {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.modal-header-stepper.active .modal-header-stepper-item,
+.modal-header-stepper-last.active .modal-header-stepper-item {
+  color: white;
+  background-color: #071952;
+  transition: 0.6s all ease-in-out;
+}
+
+.modal-header-stepper.completed .modal-header-stepper-item,
+.modal-header-stepper-last.completed .modal-header-stepper-item {
+  color: white;
+  background-color: #071952;
+}
+
+.modal-header-stepper.completed::after {
+  border: 2px solid #071952;
+  transition: 0.4s all ease-in-out;
+}
+
+.modal-header-stepper-item {
+  width: 30px;
+  height: 30px;
+  left: 40%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid grey;
+  border-radius: 50px;
+}
+
+.modal-header-stepper::after {
+  content: '';
+  position: absolute;
+  width: calc(90% - 34px);
+  left: calc(45% + 30px);
+  top: 47%;
+  border: 2px solid rgb(204, 203, 203);
+}
