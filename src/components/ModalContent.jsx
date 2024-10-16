@@ -4,7 +4,12 @@ import Forms from "./Forms";
 const ModalContent = (props) => {
 
     // props
-    const { formData, formValues, handleInputChange } = props;
+    const {
+        formData,
+        formValues,
+        formErrors,
+        handleInputChange
+    } = props;
 
     return (
         <>
@@ -15,8 +20,8 @@ const ModalContent = (props) => {
                     formData.fields.map((formField) => (
                         <div key={formField.id} className={formField.style}>
                             <Forms
-                                type={formField.type}
                                 formValue={formValues?.[formField.name] ?? null}
+                                formErrors={formErrors}
                                 fieldData={formField}
                                 handleInputChange={handleInputChange}
                             />

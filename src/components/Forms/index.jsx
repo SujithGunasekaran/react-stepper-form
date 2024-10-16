@@ -5,17 +5,18 @@ const Forms = (props) => {
 
     // props
     const {
-        type,
         fieldData,
         formValue,
+        formErrors,
         handleInputChange
     } = props;
 
-    const FormComponent = formFields[type];
+    const FormComponent = formFields[fieldData.component];
 
     return (
         <FormComponent
             formValue={formValue}
+            formErrors={formErrors}
             fieldData={fieldData}
             handleInputChange={handleInputChange}
         />

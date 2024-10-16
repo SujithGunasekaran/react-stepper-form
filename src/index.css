@@ -70,7 +70,6 @@ body {
 .modal-header-stepper-last.active .modal-header-stepper-item {
   color: white;
   background-color: #071952;
-  transition: 0.6s all ease-in-out;
 }
 
 .modal-header-stepper.completed .modal-header-stepper-item,
@@ -81,7 +80,7 @@ body {
 
 .modal-header-stepper.completed::after {
   border: 2px solid #071952;
-  transition: 0.4s all ease-in-out;
+  transition: 0.6s all ease-in-out;
 }
 
 .modal-header-stepper-item {
@@ -94,6 +93,7 @@ body {
   justify-content: center;
   border: 0.5px solid grey;
   border-radius: 50px;
+  transition: 0.6s all ease-in-out;
 }
 
 .modal-header-stepper::after {
@@ -104,6 +104,7 @@ body {
   top: 44%;
   border-radius: 5px;
   border: 3px solid rgb(204, 203, 203);
+  transition: 0.6s all ease-in-out;
 }
 
 .modal-content {
@@ -158,6 +159,11 @@ body {
   transition: 0.3s all ease-in-out;
 }
 
+.input-field.error,
+.input-field-mobile-wrapper.error {
+  border: 2px solid rgb(232, 38, 38);
+}
+
 .input-field.mobile {
   width: 100%;
   padding: 15px 0px;
@@ -198,6 +204,11 @@ body {
 
 .input-field-mobile-wrapper:has(input:focus) {
   border: 2px solid #071952;
+}
+
+.input-field-error-message {
+  font-size: 13px;
+  color: rgb(202, 18, 18);
 }
 
 .modal-footer {

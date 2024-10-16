@@ -7,6 +7,7 @@ const InputText = (props) => {
     const {
         fieldData,
         formValue,
+        formErrors,
         handleInputChange
     } = props;
 
@@ -15,6 +16,8 @@ const InputText = (props) => {
     const updateFormData = () => {
         handleInputChange(fieldData.name, inputValue);
     }
+
+    const errorMessage = fieldData.errorMessages[formErrors[fieldData.name]] || '';
 
     return (
         <div className='modal-content-input-wrapper'>
@@ -30,10 +33,16 @@ const InputText = (props) => {
                 name={fieldData.name}
                 value={inputValue}
                 placeholder={fieldData.placeholder}
-                className='input-field'
+                className={`input-field ${errorMessage && 'error'}`}
                 onChange={handleFieldChange}
                 onBlur={updateFormData}
             />
+            {
+                errorMessage &&
+                <div className='input-field-error-message'>
+                    {errorMessage}
+                </div>
+            }
         </div>
     )
 
