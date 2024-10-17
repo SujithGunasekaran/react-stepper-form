@@ -9,7 +9,6 @@ import ModalContent from './ModalContent';
 const Modal = () => {
 
     // state
-    // const [steps, setSteps] = useState(stepsList);
     const [activeStepIndex, setActiveStepIndex] = useState(0);
     const [isCompleted, setIsCompleted] = useState(false);
     const [formValues, setFormValues] = useState({});

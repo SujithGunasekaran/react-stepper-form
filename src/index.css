@@ -137,6 +137,10 @@ body {
   width: 46%;
 }
 
+.modal-content-form-field-container .full-width {
+  width: 100%;
+}
+
 .modal-content-input-wrapper {
   display: flex;
   gap: 9px;
@@ -148,6 +152,10 @@ body {
 .input-label {
   color: rgb(62, 62, 62);
   font-weight: 400;
+}
+
+.input-label.hide {
+  display: none;
 }
 
 .input-field {
@@ -211,6 +219,79 @@ body {
   color: rgb(202, 18, 18);
 }
 
+.input-select-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.input-select-option {
+  margin: 5px 0px;
+  width: 49%;
+  padding: 20px 15px;
+  border-radius: 6px;
+  accent-color: #071952;
+  cursor: pointer;
+  border: 2px solid rgb(236, 236, 236);
+  transition: 0.3s all ease-in-out;
+}
+
+.input-select-option.error {
+  border: 2px solid rgb(202, 18, 18);
+}
+
+.input-select-option:hover {
+  border: 2px solid #071952;
+}
+
+.input-radio-label {
+  cursor: pointer;
+  font-weight: 400;
+  padding-left: 7px;
+}
+
+.input-multi-select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 6px;
+  position: relative;
+  border: 2px solid rgb(236, 236, 236);
+}
+
+.multi-select-wrapper {
+  width: 100%;
+  padding: 12px 15px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-multi-select-item-wrapper {
+  width: 95%;
+  background-color: red;
+}
+
+.input-multi-select-icon {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  cursor: pointer;
+}
+
+.multi-select-option-wrapper {
+  position: absolute;
+  top: 58px;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
 .modal-footer {
   margin: 20px 0px;
   padding-top: 20px;
@@ -230,6 +311,7 @@ body {
   padding: 10px 15px;
   border-radius: 6px;
   cursor: pointer;
+  border: 1px solid #071952;
   background-color: #071952;
 }
 

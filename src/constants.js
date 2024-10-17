@@ -61,14 +61,89 @@ const formDataOne = {
     ]
 };
 
+const formDataTwo = {
+    title: 'Skill Level',
+    description: 'Please tell us about your skill level in frontend developer',
+    fields: [
+        {
+            id: '1',
+            component: 'radio',
+            type: 'radio',
+            label: 'Select skills level',
+            hideLabel: true,
+            name: 'skillLevel',
+            style: 'full-width',
+            validationType: 'empty',
+            options: [
+                {
+                    id: 'biginner',
+                    name: 'biginner',
+                    displayName: 'Biginner'
+                },
+                {
+                    id: 'intermediate',
+                    name: 'intermediate',
+                    displayName: 'Intermediate'
+                },
+                {
+                    id: 'advanced',
+                    name: 'advanced',
+                    displayName: 'Advanced'
+                },
+                {
+                    id: 'expect',
+                    name: 'expect',
+                    displayName: 'Expect'
+                },
+            ],
+            errorMessages: {
+                empty: 'Please Select Skill Level',
+            }
+        },
+    ]
+}
+
+const formDataThree = {
+    title: 'Skills',
+    description: 'Select relevant skills that align with your current or previous experience.',
+    fields: [
+        {
+            id: '1',
+            component: 'multiSelect',
+            type: 'multiSelect',
+            label: 'Select skills level',
+            hideLabel: true,
+            name: 'skills',
+            style: 'full-width',
+            validationType: 'empty',
+            options: [
+                {
+                    id: 'javascript',
+                    name: 'javascript',
+                    displayName: 'Javascript'
+                },
+                {
+                    id: 'react.js',
+                    name: 'react.js',
+                    displayName: 'React.js'
+                },
+            ],
+            errorMessages: {
+                empty: 'Please Select Skill Level',
+            }
+        },
+    ]
+}
+
+
 const steps = [
     {
         id: 1,
-        formData: formDataOne
+        formData: formDataThree
     },
     {
         id: 2,
-        formData: formDataOne
+        formData: formDataTwo
     },
     {
         id: 3,
