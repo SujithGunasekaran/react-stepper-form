@@ -64,9 +64,11 @@ const Modal = () => {
             <form onSubmit={handleFormSubmit}>
                 <div className='modal-content'>
                     <ModalContent
+                        totalSteps={stepsList.length - 1}
                         formData={stepsList[activeStepIndex].formData}
                         formValues={formValues}
                         formErrors={formErrors}
+                        activeStepIndex={activeStepIndex}
                         handleInputChange={handleInputChange}
                     />
                 </div>

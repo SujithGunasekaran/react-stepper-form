@@ -8,6 +8,7 @@ const InputText = (props) => {
         fieldData,
         formValue,
         formErrors,
+        disable,
         handleInputChange
     } = props;
 
@@ -33,6 +34,7 @@ const InputText = (props) => {
                 name={fieldData.name}
                 value={inputValue}
                 placeholder={fieldData.placeholder}
+                disabled={disable}
                 className={`input-field ${errorMessage && 'error'}`}
                 onChange={handleFieldChange}
                 onBlur={updateFormData}

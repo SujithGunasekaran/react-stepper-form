@@ -219,6 +219,10 @@ body {
   color: rgb(202, 18, 18);
 }
 
+.input-field-error-message.multi-select {
+  margin-top: 10px;
+}
+
 .input-select-wrapper {
   display: flex;
   width: 100%;
@@ -246,6 +250,10 @@ body {
   border: 2px solid #071952;
 }
 
+.input-select-option.disabled:hover {
+  border: 2px solid rgb(236, 236, 236);
+}
+
 .input-radio-label {
   cursor: pointer;
   font-weight: 400;
@@ -257,7 +265,16 @@ body {
   padding: 5px;
   border-radius: 6px;
   position: relative;
+  transition: 0.3s all ease-in-out;
   border: 2px solid rgb(236, 236, 236);
+}
+
+.input-multi-select.active {
+  border: 2px solid #071952;
+}
+
+.input-multi-select.error {
+  border: 2px solid rgb(202, 18, 18);
 }
 
 .multi-select-wrapper {
@@ -271,7 +288,27 @@ body {
 
 .input-multi-select-item-wrapper {
   width: 95%;
-  background-color: red;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input-multi-select-item-wrapper .item {
+  padding: 7px 15px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #071952;
+  border-radius: 6px;
+}
+
+.input-multi-select-item-wrapper .item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
 }
 
 .input-multi-select-icon {
@@ -288,8 +325,21 @@ body {
   width: 100%;
   padding: 15px;
   border-radius: 6px;
+  max-height: 180px;
+  overflow-y: scroll;
   background-color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.multi-select-option-wrapper .item {
+  padding: 15px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.multi-select-option-wrapper .item:hover {
+  background-color: #EBF4F6;
 }
 
 .modal-footer {

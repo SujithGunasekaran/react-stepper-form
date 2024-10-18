@@ -61,7 +61,7 @@ const formDataOne = {
     ]
 };
 
-const formDataTwo = {
+const formDataThree = {
     title: 'Skill Level',
     description: 'Please tell us about your skill level in frontend developer',
     fields: [
@@ -103,7 +103,7 @@ const formDataTwo = {
     ]
 }
 
-const formDataThree = {
+const formDataTwo = {
     title: 'Skills',
     description: 'Select relevant skills that align with your current or previous experience.',
     fields: [
@@ -115,7 +115,7 @@ const formDataThree = {
             hideLabel: true,
             name: 'skills',
             style: 'full-width',
-            validationType: 'empty',
+            validationType: 'emptyArray',
             options: [
                 {
                     id: 'javascript',
@@ -127,11 +127,36 @@ const formDataThree = {
                     name: 'react.js',
                     displayName: 'React.js'
                 },
+                {
+                    id: 'next.js',
+                    name: 'next.js',
+                    displayName: 'Next.js'
+                },
+                {
+                    id: 'typescript',
+                    name: 'typescript',
+                    displayName: 'Typescript'
+                },
+                {
+                    id: 'vue.js',
+                    name: 'vue.js',
+                    displayName: 'Vue.js'
+                },
             ],
             errorMessages: {
-                empty: 'Please Select Skill Level',
+                empty: 'Please Select Skills',
             }
         },
+    ]
+}
+
+const formFour = {
+    title: 'Review',
+    description: 'Review your details before submitting the details.',
+    fields: [
+        ...formDataOne.fields,
+        ...formDataTwo.fields,
+        ...formDataThree.fields,
     ]
 }
 
@@ -139,19 +164,19 @@ const formDataThree = {
 const steps = [
     {
         id: 1,
-        formData: formDataThree
+        formData: formDataOne,
     },
     {
         id: 2,
-        formData: formDataTwo
+        formData: formDataTwo,
     },
     {
         id: 3,
-        formData: formDataOne
+        formData: formDataThree,
     },
     {
         id: 4,
-        formData: formDataOne
+        formData: formFour,
     },
 ];
 

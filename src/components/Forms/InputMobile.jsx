@@ -8,6 +8,7 @@ const InputMobile = (props) => {
         fieldData,
         formValue,
         formErrors,
+        disable,
         handleInputChange
     } = props;
 
@@ -35,6 +36,7 @@ const InputMobile = (props) => {
                     name={fieldData.name}
                     value={inputValue}
                     maxLength={10}
+                    disabled={disable}
                     placeholder={fieldData.placeholder}
                     className='input-field mobile'
                     onChange={handleFieldChange}

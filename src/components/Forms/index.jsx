@@ -8,6 +8,7 @@ const Forms = (props) => {
         fieldData,
         formValue,
         formErrors,
+        disable,
         handleInputChange
     } = props;
 
@@ -15,6 +16,7 @@ const Forms = (props) => {
 
     return (
         <FormComponent
+            disable={disable}
             formValue={formValue}
             formErrors={formErrors}
             fieldData={fieldData}

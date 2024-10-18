@@ -5,9 +5,11 @@ const ModalContent = (props) => {
 
     // props
     const {
+        totalSteps,
         formData,
         formValues,
         formErrors,
+        activeStepIndex,
         handleInputChange
     } = props;
 
@@ -20,9 +22,10 @@ const ModalContent = (props) => {
                     formData.fields.map((formField) => (
                         <div key={formField.id} className={formField.style}>
                             <Forms
-                                formValue={formValues?.[formField.name] ?? null}
+                                formValue={formValues?.[formField.name] ?? undefined}
                                 formErrors={formErrors}
                                 fieldData={formField}
+                                disable={activeStepIndex === totalSteps}
                                 handleInputChange={handleInputChange}
                             />
                         </div>

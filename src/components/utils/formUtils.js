@@ -10,6 +10,13 @@ const validateValueWithRegex = (input, regex) => {
     return !regex.test(input) ? 'inValid' : null;
 }
 
+const validateArray = (input) => {
+    if (isEmpty(input)) {
+        return 'empty';
+    }
+    return (!Array.isArray(input) || input.length === 0) ? 'empty' : null;
+}
+
 export const validateForm = (formFields, inputData) => {
     return formFields.reduce((errors, field) => {
         if (!inputData[field.name]) {
@@ -29,6 +36,13 @@ export const validateForm = (formFields, inputData) => {
                 return errors;
             case 'regex': {
                 const validationMessage = validateValueWithRegex(inputData[field.name], field.regex);
+                return {
+                    ...errors,
+                    ...(validationMessage ? { [field.name]: validationMessage } : {})
+                }
+            }
+            case 'emptyArray': {
+                const validationMessage = validateArray(inputData[field.name], field.regex);
                 return {
                     ...errors,
                     ...(validationMessage ? { [field.name]: validationMessage } : {})
