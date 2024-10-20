@@ -1,12 +1,25 @@
 /* eslint-disable react/prop-types */
 
 
-const ModalFooter = ({ goToPreviousStep }) => {
+const ModalFooter = (props) => {
+
+    // props
+    const {
+        isLast,
+        activeStep,
+        goToPreviousStep,
+    } = props;
 
     return (
         <div className='modal-footer-button-wrapper'>
-            <button type='button' className='back-btn' onClick={goToPreviousStep}>Go Back</button>
-            <button type='submit' className='submit-btn'>Next Step</button>
+            {
+                activeStep > 0 ?
+                    <button type='button' className='back-btn' onClick={goToPreviousStep}>Go Back</button> :
+                    <div></div>
+            }
+            <button type='submit' className='submit-btn'>
+                {isLast ? 'Submit' : 'Next Step'}
+            </button>
         </div>
     )
 

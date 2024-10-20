@@ -19,38 +19,47 @@ const InputRadio = (props) => {
     }
 
     return (
-        <div className='input-select-wrapper'>
-            {
-                fieldData.options.map((option) => (
-                    <div
-                        key={option.id}
-                        className={`input-select-option ${errorMessage && 'error'} ${disable && 'disabled'}`}
-                        onClick={() => handleRadioSelect(option.name)}
-                    >
-                        <input
-                            type='radio'
-                            id={option.name}
-                            name={fieldData.name}
-                            value={option.name}
-                            disabled={disable}
-                            checked={formValue === option.name}
-                        />
-                        <label
-                            htmlFor={option.name}
-                            className='input-radio-label'
+        <>
+            <label
+                htmlFor={fieldData.name}
+                className='input-label'
+            >
+                {fieldData.label}
+            </label>
+            <div className='input-select-wrapper'>
+                {
+                    fieldData.options.map((option) => (
+                        <div
+                            key={option.id}
+                            className={`input-select-option ${errorMessage && 'error'} ${disable && 'disabled'}`}
+                            onClick={() => handleRadioSelect(option.name)}
                         >
-                            {option.displayName}
-                        </label>
+                            <input
+                                type='radio'
+                                id={option.name}
+                                name={fieldData.name}
+                                value={option.name}
+                                disabled={disable}
+                                checked={formValue === option.name}
+                                onChange={() => { }}
+                            />
+                            <label
+                                htmlFor={option.name}
+                                className='input-radio-label'
+                            >
+                                {option.displayName}
+                            </label>
+                        </div>
+                    ))
+                }
+                {
+                    errorMessage &&
+                    <div className='input-field-error-message'>
+                        {errorMessage}
                     </div>
-                ))
-            }
-            {
-                errorMessage &&
-                <div className='input-field-error-message'>
-                    {errorMessage}
-                </div>
-            }
-        </div>
+                }
+            </div>
+        </>
     )
 
 }

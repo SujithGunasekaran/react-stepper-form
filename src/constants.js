@@ -66,10 +66,10 @@ const formDataThree = {
     description: 'Please tell us about your skill level in frontend developer',
     fields: [
         {
-            id: '1',
+            id: '5',
             component: 'radio',
             type: 'radio',
-            label: 'Select skills level',
+            label: 'Skill Level',
             hideLabel: true,
             name: 'skillLevel',
             style: 'full-width',
@@ -108,10 +108,10 @@ const formDataTwo = {
     description: 'Select relevant skills that align with your current or previous experience.',
     fields: [
         {
-            id: '1',
+            id: '6',
             component: 'multiSelect',
             type: 'multiSelect',
-            label: 'Select skills level',
+            label: 'Skills',
             hideLabel: true,
             name: 'skills',
             style: 'full-width',

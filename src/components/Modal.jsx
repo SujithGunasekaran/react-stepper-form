@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { validateForm } from './utils/formUtils';
 import stepsList from '../constants';
 import ModalHeader from "./ModalHeader";
 import ModalFooter from './ModalFooter';
 import ModalContent from './ModalContent';
+import Result from './Result';
 
 const Modal = () => {
 
@@ -13,6 +14,8 @@ const Modal = () => {
     const [isCompleted, setIsCompleted] = useState(false);
     const [formValues, setFormValues] = useState({});
     const [formErrors, setFormErrors] = useState({});
+
+    const isLastStep = useMemo(() => activeStepIndex === stepsList.length - 1, [activeStepIndex])
 
     const clearFormFieldError = (fieldName) => {
         if (formErrors[fieldName]) {
@@ -44,6 +47,10 @@ const Modal = () => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
+        if (isLastStep) {
+            setIsCompleted(true);
+            return;
+        }
         const errors = validateForm(stepsList[activeStepIndex].formData.fields, formValues);
         if (Object.keys(errors).length > 0) {
             setFormErrors(errors);
@@ -61,23 +68,29 @@ const Modal = () => {
                 activeIndex={activeStepIndex}
                 isCompleted={isCompleted}
             />
-            <form onSubmit={handleFormSubmit}>
-                <div className='modal-content'>
-                    <ModalContent
-                        totalSteps={stepsList.length - 1}
-                        formData={stepsList[activeStepIndex].formData}
-                        formValues={formValues}
-                        formErrors={formErrors}
-                        activeStepIndex={activeStepIndex}
-                        handleInputChange={handleInputChange}
-                    />
-                </div>
-                <div className='modal-footer'>
-                    <ModalFooter
-                        goToPreviousStep={goToPreviousStep}
-                    />
-                </div>
-            </form>
+            {
+                isCompleted ?
+                    <Result /> :
+                    <form onSubmit={handleFormSubmit}>
+                        <div className='modal-content'>
+                            <ModalContent
+                                totalSteps={stepsList.length - 1}
+                                formData={stepsList[activeStepIndex].formData}
+                                formValues={formValues}
+                                formErrors={formErrors}
+                                activeStepIndex={activeStepIndex}
+                                handleInputChange={handleInputChange}
+                            />
+                        </div>
+                        <div className='modal-footer'>
+                            <ModalFooter
+                                isLast={isLastStep}
+                                activeStep={activeStepIndex}
+                                goToPreviousStep={goToPreviousStep}
+                            />
+                        </div>
+                    </form>
+            }
         </div>
     )
 }

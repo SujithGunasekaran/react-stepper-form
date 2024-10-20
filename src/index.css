@@ -226,6 +226,7 @@ body {
 .input-select-wrapper {
   display: flex;
   width: 100%;
+  margin-top: 10px;
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
@@ -263,6 +264,7 @@ body {
 .input-multi-select {
   width: 100%;
   padding: 5px;
+  margin-top: 10px;
   border-radius: 6px;
   position: relative;
   transition: 0.3s all ease-in-out;
@@ -373,4 +375,42 @@ body {
   cursor: pointer;
   border: 1px solid #071952;
   background-color: white;
+}
+
+.result-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0px 20px 0px;
+  justify-content: center;
+}
+
+.result-check-mark {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  color: white;
+  background-color: #071952;
+}
+
+.result-check-mark .icon {
+  width: 40px;
+  height: 40px;
+}
+
+.result-title {
+  margin: 15px 0px;
+  padding: 0px;
+}
+
+.result-description {
+  text-align: center;
+  font-weight: 400;
+  line-height: 24px;
+  word-spacing: 0.4px;
+  margin: 0px;
+  color: rgb(107, 107, 107);
 }

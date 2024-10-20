@@ -61,6 +61,12 @@ const InputMultiSelect = (props) => {
 
     return (
         <>
+            <label
+                htmlFor={fieldData.name}
+                className='input-label'
+            >
+                {fieldData.label}
+            </label>
             <div
                 className={`input-multi-select ${errorMessage && 'error'} ${isDropdownOpened && 'active'}`}
             >
