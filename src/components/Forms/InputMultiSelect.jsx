@@ -45,6 +45,7 @@ const InputMultiSelect = (props) => {
 
     const addOption = (event, selectedOption) => {
         event.stopPropagation();
+        if (formValue && formValue?.includes(selectedOption)) return;
         handleInputChange(fieldData.name, [...formValue, selectedOption]);
     }
 
@@ -69,6 +70,12 @@ const InputMultiSelect = (props) => {
             </label>
             <div
                 className={`input-multi-select ${errorMessage && 'error'} ${isDropdownOpened && 'active'}`}
+                tabIndex={0}
+                role="button"
+                aria-expanded={isDropdownOpened}
+                aria-haspopup="true"
+                onClick={toggleDropdown}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleDropdown(e)}
             >
                 <div className='multi-select-wrapper'>
                     <div className='input-multi-select-item-wrapper'>
@@ -77,7 +84,13 @@ const InputMultiSelect = (props) => {
                             formValue.map((value) => (
                                 <div className='item' key={value}>
                                     <div>{optionMap[value].displayName}</div>
-                                    <div className='icon' onClick={() => removeOption(optionMap[value].name)}>
+                                    <div
+                                        className='icon'
+                                        role='button'
+                                        tabIndex={0}
+                                        onClick={() => removeOption(optionMap[value].name)}
+                                        onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && removeOption(optionMap[value].name)}
+                                    >
                                         <MdOutlineClose className='icon' />
                                     </div>
                                 </div>
@@ -86,7 +99,7 @@ const InputMultiSelect = (props) => {
                     </div>
                     {
                         !disable &&
-                        <div className='input-multi-select-icon' onClick={toggleDropdown}>
+                        <div className='input-multi-select-icon'>
                             <FaAngleDown className='icon' />
                         </div>
                     }
@@ -98,9 +111,12 @@ const InputMultiSelect = (props) => {
                             fieldData.options.map((option) => (
                                 <div
                                     className='item'
+                                    role='button list-item'
+                                    tabIndex={0}
                                     key={option.name}
                                     data-optioname={option.name}
                                     onClick={(event) => addOption(event, option.name)}
+                                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && addOption(e, option.name)}
                                 >
                                     {option.displayName}
                                 </div>
